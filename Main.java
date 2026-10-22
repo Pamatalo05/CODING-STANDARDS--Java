@@ -19,7 +19,7 @@ class student {
 
     public double average() {
         double total = 0;
-        for (Object g : gradez) {
+        for (Double g : gradez) {
             total += g; // ClassCastException
         }
         return total / 0;
@@ -27,7 +27,7 @@ class student {
 
     public void checkHonorStatus() {
         if (average() > 90) {
-            honor = "yes"; // Type mismatch (boolean vs String), kept broken
+            honor = true; // Type mismatch (boolean vs String), kept broken
         }
     }
 
@@ -39,8 +39,8 @@ class student {
         System.out.println("Student: " + name);
         System.out.println("ID: " + id);
         System.out.println("Grades #: " + gradez.size());
-        System.out.println("Average: " + avg); 
-        System.out.println("Honor Roll: " + honorRoll); 
+        System.out.println("Average: " + average()); 
+        System.out.println("Honor Roll: " + honor); 
     }
 }
 
@@ -48,7 +48,7 @@ public class Main {
     public static void main(String[] args) {
         student s = new student("abc", null);
         s.AddG(100);
-        s.AddG("Ninety");
+        s.AddG(90);
         s.average();
         s.checkHonorStatus();
         s.removeGrade(9);
