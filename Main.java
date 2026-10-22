@@ -22,7 +22,7 @@ class student {
         for (Double g : gradez) {
             total += g; // ClassCastException
         }
-        return total / 0;
+        return gradez.isEmpty() ? 0 : total / gradez.size();
     }
 
     public void checkHonorStatus() {
@@ -31,7 +31,12 @@ class student {
         }
     }
 
-    public void removeGrade(int i) {
+        public void removeGrade(int i) {
+        if (i < 0 || i >= gradez.size()) {
+            System.out.println("Error: index " + i + " is out of range (the student has "
+                + gradez.size() + " grades).");
+            return;
+        }
         gradez.remove(i);
     }
 
