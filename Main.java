@@ -3,17 +3,17 @@ import java.util.*;
 class student {
     String id;
     String name;
-    List gradez;
+    List<Double> gradez;
     String pass = "unknown";
     boolean honor;
 
     public student(String i, String n) {
         id = i;
         name = n;
-        gradez = new ArrayList();
+        gradez = new ArrayList<>();
     }
 
-    public void AddG(Object g) {
+    public void AddG(double g) {
         gradez.add(g);
     }
 
